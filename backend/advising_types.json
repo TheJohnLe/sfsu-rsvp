@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Undergraduate Advising",
+    "short-hand": "UG",
+    "advisors": [2, 3]
+  },
+  {
+    "name": "Transfer Advising",
+    "short-hand": "TR",
+    "advisors": [1]
+  },
+  {
+    "name": "Probation Advising",
+    "short-hand": "PR",
+    "advisors": [1, 3]
+  },
+  {
+    "name": "Graduate Advising",
+    "short-hand": "GR",
+    "advisors": [2]
+  }
+]
