@@ -1,6 +1,6 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "Joongasm99",
+  HOST: "HOST",
+  USER: "USERNAME",
+  PASSWORD: "PASSWORD",
   DB: "iassist",
 };
