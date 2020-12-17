@@ -27,14 +27,14 @@ INSERT INTO users VALUES (900000014, 'James', 'Wong', 'james@sfsu.edu', 'james',
 INSERT INTO users VALUES (900000015, 'Ilmi', 'Yoon', 'ilmi@sfsu.edu', 'ilmi', 'https://zoom.com/ilmi', 'F');
 INSERT INTO users VALUES (900000016, 'Hao', 'Yue', 'hao@sfsu.edu', 'hao', 'https://zoom.com/hao', 'F');
 
-INSERT INTO `appointments` VALUES (1, 'UG', '1591565400', '1591566300', 918190694, 900000005, 'Sample Student Notes 1', 'Sample Faculty Notes 1', FALSE, FALSE, TRUE);
-INSERT INTO `appointments` VALUES (2, 'TR', '1591566300', '1591567200', 918190694, 900000003, 'Sample Student Notes 2', 'Sample Faculty Notes 2', FALSE, TRUE, TRUE);
-INSERT INTO `appointments` VALUES (3, 'PR', '1595366100', '1595367000', 918190694, 900000001, 'Sample Student Notes 3', NULL, FALSE, FALSE, FALSE);
-INSERT INTO `appointments` VALUES (4, 'UG','1594935000',  '1594935900', 918190694, 900000007, 'Sample Student Notes 4', NULL, FALSE, FALSE, FALSE);
-INSERT INTO `appointments` VALUES (5, 'TR','1594935000',  '1594935900', 918190694, 900000003, 'Sample Student Notes 5', NULL, FALSE, FALSE, FALSE);
-INSERT INTO `appointments` VALUES (6, 'GR','1594935000',  '1594935900', 918190694, 900000002, 'Sample Student Notes 6', NULL, FALSE, FALSE, FALSE);
-INSERT INTO `appointments` VALUES (7, 'UG','1594935000',  '1594935900', 918190783, 900000006, 'Sample Student Notes 7', NULL, FALSE, FALSE,  FALSE);
-INSERT INTO `appointments` VALUES (8, 'GR','1594935000',  '1594935900', 918190543, 900000002, 'Sample Student Notes 8', NULL, FALSE, FALSE,  FALSE);
+INSERT INTO `appointments` VALUES (1, 'UG', '1601415000', '1601415900', 918190694, 900000005, 'Sample Student Notes 1', 'Sample Faculty Notes 1', FALSE, FALSE, TRUE);
+INSERT INTO `appointments` VALUES (2, 'TR', '1601415000', '1601415900', 918190694, 900000003, 'Sample Student Notes 2', 'Sample Faculty Notes 2', FALSE, TRUE, TRUE);
+INSERT INTO `appointments` VALUES (3, 'PR', '1601415000', '1601415900', 918190694, 900000001, 'Sample Student Notes 3', NULL, FALSE, FALSE, FALSE);
+INSERT INTO `appointments` VALUES (4, 'UG','1601415000',  '1601415900', 918190694, 900000007, 'Sample Student Notes 4', NULL, FALSE, FALSE, FALSE);
+INSERT INTO `appointments` VALUES (5, 'TR','1601415000',  '1601415900', 918190694, 900000003, 'Sample Student Notes 5', NULL, FALSE, FALSE, FALSE);
+INSERT INTO `appointments` VALUES (6, 'GR','1601415000',  '1601415900', 918190694, 900000002, 'Sample Student Notes 6', NULL, FALSE, FALSE, FALSE);
+INSERT INTO `appointments` VALUES (7, 'UG','1601415000',  '1601415900', 918190783, 900000006, 'Sample Student Notes 7', NULL, FALSE, FALSE,  FALSE);
+INSERT INTO `appointments` VALUES (8, 'GR','1601415000',  '1601415900', 918190543, 900000002, 'Sample Student Notes 8', NULL, FALSE, FALSE,  FALSE);
 
 /* Arno Tuesday 2-3 */
 INSERT INTO `schedules` VALUES (1, 900000001, 'PR', 2, "1400", "1415"); 

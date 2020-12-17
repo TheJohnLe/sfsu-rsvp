@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 
   // create a student
   const student = new Student({
-    sfsu_id: req.body.sfsu_id,
+    s_id: req.body.s_id,
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
@@ -44,15 +44,15 @@ exports.findAll = (req, res) => {
 
 // Find a single student with a id
 exports.findStudent = (req, res) => {
-  Student.findById(req.params.sfsu_id, (err, data) => {
+  Student.findById(req.params.s_id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Student not found with id ${req.params.sfsu_id}.`,
+          message: `Student not found with id ${req.params.s_id}.`,
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving student with id " + req.params.sfsu_id,
+          message: "Error retrieving student with id " + req.params.s_id,
         });
       }
     } else res.send(data);
@@ -61,15 +61,15 @@ exports.findStudent = (req, res) => {
 
 // Find the history of completed appointments of particular student
 exports.findHistory = (req, res) => {
-  Student.retrieveHistory(req.params.sfsu_id, (err, data) => {
+  Student.retrieveHistory(req.params.s_id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Student not found with id ${req.params.sfsu_id}.`,
+          message: `Student not found with id ${req.params.s_id}.`,
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving student with id " + req.params.sfsu_id,
+          message: "Error retrieving student with id " + req.params.s_id,
         });
       }
     } else res.send(data);
@@ -103,15 +103,15 @@ exports.update = (req, res) => {
     });
   }
 
-  Student.updateById(req.params.sfsu_id, new Student(req.body), (err, data) => {
+  Student.updateById(req.params.s_id, new Student(req.body), (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(400).send({
-          message: `Student not found with id ${req.params.sfsu_id}.`,
+          message: `Student not found with id ${req.params.s_id}.`,
         });
       } else {
         res.status(500).send({
-          message: `Error updating Student with id " ${req.params.sfsu_id}`,
+          message: `Error updating Student with id " ${req.params.s_id}`,
         });
       }
     } else res.send(data);
@@ -120,15 +120,15 @@ exports.update = (req, res) => {
 
 // Delete a student with the specified id in the request
 exports.delete = (req, res) => {
-  Student.remove(req.params.sfsu_id, (err, data) => {
+  Student.remove(req.params.s_id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `student not found with id ${req.params.sfsu_id}.`,
+          message: `student not found with id ${req.params.s_id}.`,
         });
       } else {
         res.status(500).send({
-          message: `Could not delete student with id ${req.params.sfsu_id}.`,
+          message: `Could not delete student with id ${req.params.s_id}.`,
         });
       }
     } else res.send({ message: `Student deleted successfully!` });

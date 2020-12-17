@@ -49,9 +49,9 @@ Student.findById = (sfsu_id, result) => {
   );
 };
 
-Student.retrieveHistory = (sfsu_id, result) => {
+Student.retrieveHistory = (s_id, result) => {
   sql.query(
-    `SELECT * FROM appointments WHERE sfsu_id = ${sfsu_id} AND completed = 1`,
+    `SELECT * FROM appointments WHERE student_id = ${s_id} AND completed = 1`,
     (err, res) => {
       if (err) {
         console.log("error: ", err);
@@ -60,11 +60,11 @@ Student.retrieveHistory = (sfsu_id, result) => {
       }
 
       if (res.length === 0) {
-        console.log(`student with id ${sfsu_id} has an empty history.`);
+        console.log(`student with id ${s_id} has an empty history.`);
         result(null, null);
         return;
       } else if (res.length > 0) {
-        console.log(`student sfsu_id ${sfsu_id}'s history`, res);
+        console.log(`student sfsu_id ${s_id}'s history`, res);
         result(null, res);
         return;
       }

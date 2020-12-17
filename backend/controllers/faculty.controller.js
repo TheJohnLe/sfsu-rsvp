@@ -1,4 +1,5 @@
 const Faculty = require("../models/faculty.model");
+const Schedule = require("../models/schedule.model");
 
 // Create and Save a new faculty
 exports.create = (req, res) => {
@@ -81,7 +82,7 @@ exports.findZoom = (req, res) => {
 
 // Find all appointments with faculty id
 exports.findAllAppointments = (req, res) => {
-  Appointment.findAppointmentsBySession(req.params.sess_key, (err, data) => {
+  Faculty.findAppointmentsBySession(req.params.sess_key, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
@@ -99,46 +100,38 @@ exports.findAllAppointments = (req, res) => {
 
 // Find all active appointments with faculty id
 exports.findTodaysAppointments = (req, res) => {
-  Appointment.findTodaysAppointmentsBySession(
-    req.params.sess_key,
-    (err, data) => {
-      if (err) {
-        if (err.kind === "not_found") {
-          res.status(404).send({
-            message: `Appointments not found with session ${req.params.sess_key}.`,
-          });
-        } else {
-          res.status(500).send({
-            message:
-              "Error retrieving appointments with session " +
-              req.params.sess_key,
-          });
-        }
-      } else res.send(data);
-    }
-  );
+  Faculty.findTodaysAppointmentsBySession(req.params.sess_key, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Appointments not found with session ${req.params.sess_key}.`,
+        });
+      } else {
+        res.status(500).send({
+          message:
+            "Error retrieving appointments with session " + req.params.sess_key,
+        });
+      }
+    } else res.send(data);
+  });
 };
 
 // Find all active appointments with faculty id
 exports.findActiveAppointments = (req, res) => {
-  Appointment.findActiveAppointmentsBySession(
-    req.params.sess_key,
-    (err, data) => {
-      if (err) {
-        if (err.kind === "not_found") {
-          res.status(404).send({
-            message: `Appointments not found with session ${req.params.sess_key}.`,
-          });
-        } else {
-          res.status(500).send({
-            message:
-              "Error retrieving appointments with session " +
-              req.params.sess_key,
-          });
-        }
-      } else res.send(data);
-    }
-  );
+  Faculty.findActiveAppointmentsBySession(req.params.sess_key, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Appointments not found with session ${req.params.sess_key}.`,
+        });
+      } else {
+        res.status(500).send({
+          message:
+            "Error retrieving appointments with session " + req.params.sess_key,
+        });
+      }
+    } else res.send(data);
+  });
 };
 
 exports.findSchedule = (req, res) => {

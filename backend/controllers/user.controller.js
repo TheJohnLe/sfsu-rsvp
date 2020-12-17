@@ -37,20 +37,19 @@ exports.login = (req, res) => {
       message: "Content can not be empty!",
     });
   }
-
   // create a login object
   const login = new User({
     email: req.body.email,
     password: req.body.password,
   });
-
+  //console.log("email", email, "password", password);
   // create a session and save the user object
   User.login(login, (err, data) => {
     if (err)
       res.status(500).send({
         message: err.message || "Some error occured while creating the user.",
       });
-    else res.send(data);
+    else res.send(String(data));
   });
 };
 
@@ -81,6 +80,22 @@ exports.findOne = (req, res) => {
     } else res.send(data);
   });
 };
+
+exports.findUserType = (req, res) => {
+  User.findType(req.params.sess_key, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `User not found with session ${req.params.sess_key}.`,
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving user with session " + req.params.sess_key,
+        });
+      }
+    } else res.send(data);
+  });
+}
 
 // Update a user identified by the id in the request
 exports.update = (req, res) => {

@@ -26,18 +26,22 @@ User.login = (attempt, result) => {
         attempt.sfsu_id = null;
 
         if (res.length) {
-          attempt.sfsu_id = res[0].sfsu_id;
-          sql.query("INSERT INTO sessions SET ?", attempt, (err, res) => {
-            if (err) {
-              console.log("error: ", err);
-              result(err, null);
-              return;
-            }
-          });
+          sfsu_id = res[0].sfsu_id;
 
-          // Retrieve session key
           sql.query(
-            `SELECT * FROM sessions WHERE sfsu_id = ${attempt.sfsu_id}`,
+            `INSERT INTO sessions (sfsu_id) VALUES (${sfsu_id})`,
+            (err, res) => {
+              if (err) {
+                console.log("error: ", err);
+                result(err, null);
+                return;
+              }
+            }
+          );
+
+          //Retrieve session key
+          sql.query(
+            `SELECT * FROM sessions WHERE sfsu_id = ${sfsu_id}`,
             (err, res) => {
               if (err) {
                 if (err) {
@@ -48,6 +52,7 @@ User.login = (attempt, result) => {
               }
 
               if (res.length) {
+                console.log("sending this session key", res[0].sess_key);
                 result(null, res[0].sess_key);
                 return;
               }
@@ -81,6 +86,41 @@ User.findById = (sfsu_id, result) => {
     result({ kind: "not_found" }, null);
   });
 };
+
+User.findType = (sess_key, result) => {
+  sql.query(`SELECT sfsu_id FROM sessions WHERE sess_key = ${sess_key}`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      var sfsu_id = res[0].sfsu_id;
+
+      sql.query(
+        `SELECT type FROM users WHERE sfsu_id = ${sfsu_id}`, (err, res) => {
+          if(err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+          }
+
+          if(res.length) {
+            console.log("returning found user-type", res);
+            result(null, res[0].type);
+            return;
+          }
+          
+          // no user found with the id
+    result({ kind: "not_found" }, null);
+          result({ kind: "not_found" }, null);
+        }
+      )
+    }
+
+  });
+}
 
 User.getAll = (result) => {
   sql.query("SELECT * FROM users", (err, res) => {

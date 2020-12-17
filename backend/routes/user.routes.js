@@ -13,6 +13,9 @@ module.exports = (app) => {
   // Retrieve a single user via sfsu id
   app.get("/user/:sfsu_id", user.findOne);
 
+  // Retrieve user's type by session key
+  app.get("/user/session/:sess_key", user.findUserType);
+
   // Update a user with sfsu id
   app.put("/user/:sfsu_id", user.update);
 

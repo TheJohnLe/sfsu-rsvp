@@ -87,6 +87,43 @@ Schedule.updateById = (schedule_id, schedule, result) => {
   );
 };
 
+Schedule.findByFaculty = (sess_key, result) => {
+  sql.query(
+    `SELECT sfsu_id FROM sessions WHERE sess_key = ${sess_key}`,
+    (err, res) => {
+      if(err) {
+        console.log("error: ", err);
+        result(err,null);
+        return;
+      }
+
+      if(res.length) {
+        var sfsu_id = res[0].sfsu_id;
+
+        sql.query(
+          `SELECT * FROM schedules WHERE sfsu_id = ${sfsu_id}`,
+          (err, res) => {
+            if (err) {
+              console.log("error: ", err);
+              result(err, null);
+              return;
+            }
+
+            if (res.length) {
+              result(null, res);
+              console.log("res", res);
+              return;
+            }
+
+            // no schedule found with the id
+            result({ kind: "not_found" }, null);
+          }
+        )
+      }
+    }
+  )
+}
+
 Schedule.remove = (schedule_id, result) => {
   sql.query(
     "DELETE FROM schedules WHERE schedule_id = ?",

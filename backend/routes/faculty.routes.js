@@ -14,7 +14,7 @@ module.exports = (app) => {
   app.get("/faculty/:sess_key/zoom", faculties.findZoom);
 
   // Retrieve all appointments from specific faculty with session key
-  app.get("/faculties/:sess_key/appointments", faculties.findAllAppointments);
+  app.get("/faculty/:sess_key/appointments", faculties.findAllAppointments);
 
   // Retrieve all of todays appointments from specific faculty
   app.get(

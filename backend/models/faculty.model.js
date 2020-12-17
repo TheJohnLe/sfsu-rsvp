@@ -124,7 +124,7 @@ Faculty.findAppointmentsBySession = (sess_key, result) => {
         var sfsu_id = res[0].sfsu_id;
 
         sql.query(
-          `SELECT * FROM appointments WHERE sfsu_id = ${sfsu_id}`,
+          `SELECT * FROM appointments WHERE faculty_id = ${sfsu_id}`,
           (err, res) => {
             if (err) {
               console.log("error: ", err);
@@ -158,19 +158,20 @@ Faculty.findTodaysAppointmentsBySession = (sess_key, result) => {
       }
 
       if (res.length) {
+        // retrieve ID from results
         var sfsu_id = res[0].sfsu_id;
 
         let todaysDate = new Date().toLocaleDateString();
 
+        // today midnight and tomorrow midnight in epoch time
         let todayMidnight = new Date(todaysDate);
         todayMidnight = Math.floor(todayMidnight.getTime() / 1000.0);
-
         let tomorrowMidnight = new Date(todaysDate);
         tomorrowMidnight.setDate(tomorrowMidnight.getDate() + 1);
         tomorrowMidnight = Math.floor(tomorrowMidnight.getTime() / 1000.0);
 
         sql.query(
-          `SELECT * FROM appointments WHERE sfsu_id = ${sfsu_id} AND completed = 0 AND start >= ${todayMidnight} AND end < ${tomorrowMidnight}`,
+          `SELECT * FROM appointments WHERE faculty_id = ${sfsu_id} AND completed = 0 AND start >= ${todayMidnight} AND end < ${tomorrowMidnight}`,
           (err, res) => {
             if (err) {
               console.log("error: ", err);
