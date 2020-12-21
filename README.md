@@ -14,7 +14,7 @@ Advisors are able to:
 * Give a post-session review of the appointment and add it to the history of the student
 
 # Software Requirements
-The following is required before running the machine:
+The following is required before running the app:
 * NodeJS (and npm)
 * MySQL
 See below in **Software Frameworks** for details.
