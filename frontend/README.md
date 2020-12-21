@@ -2,6 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## File Structure
 
+* All developing JavaScript will be located in the `src` folder.
 * The initial file-structure starts at App.js, which handles the Header, Footer and Container components.
 * The Container component can branch to either the Faculty-View or Student-View based on data received from the backend and database.
 * The Faculty-View and Student-View contains only components associated with those views. Explore the js files for more details.
