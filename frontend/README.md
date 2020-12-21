@@ -1,5 +1,64 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## File Structure
+
+The initial file-structure starts at App.js, which handles the Header, Footer and Container components.
+The Container component can branch to either the Faculty-View or Student-View based on data received from the backend and database.
+The Faculty-View and Student-View contains only components associated with those views. Explore the js files for more details.
+
+📦src
+ ┣ 📂components
+ ┃ ┣ 📂login
+ ┃ ┃ ┣ 📜login.css
+ ┃ ┃ ┗ 📜login.jsx
+ ┃ ┗ 📂portal
+ ┃ ┃ ┣ 📂container
+ ┃ ┃ ┃ ┣ 📂faculty-view
+ ┃ ┃ ┃ ┃ ┣ 📂appointment-detail
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointment-detail.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂appointment-tile
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointment-tile.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂appointments
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜appointments.css
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointments.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂schedule-add
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜schedule-add.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂schedule-view
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜schedule-view.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜faculty-view.jsx
+ ┃ ┃ ┃ ┣ 📂student-view
+ ┃ ┃ ┃ ┃ ┣ 📂appointment-finder
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointment-finder.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂appointment-type-browser
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointment-type-browser.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂appointments
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointments.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂appointments-detail
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜appointments-detail.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂current-appointments
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜current-appointments.jsx
+ ┃ ┃ ┃ ┃ ┣ 📂timeslot-browser
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜timeslot-browser.css
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜timeslot-browser.jsx
+ ┃ ┃ ┃ ┃ ┗ 📜student-view.jsx
+ ┃ ┃ ┃ ┣ 📜container.css
+ ┃ ┃ ┃ ┗ 📜container.jsx
+ ┃ ┃ ┣ 📂footer
+ ┃ ┃ ┃ ┣ 📜footer.css
+ ┃ ┃ ┃ ┗ 📜footer.jsx
+ ┃ ┃ ┣ 📂header
+ ┃ ┃ ┃ ┣ 📜header.css
+ ┃ ┃ ┃ ┗ 📜header.jsx
+ ┃ ┃ ┗ 📜portal.jsx
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┣ 📜logo.svg
+ ┣ 📜serviceWorker.js
+ ┗ 📜setupTests.js
+
 ## Available Scripts
 
 In the project directory, you can run:
