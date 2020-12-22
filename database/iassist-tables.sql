@@ -11,7 +11,7 @@ CREATE TABLE `users` (
     `last_name` CHAR(25),
      `email` CHAR(40) NOT NULL,
     `password` CHAR(20) NOT NULL,
-    `zoom` CHAR(25),							/* Student = null */
+    `zoom` CHAR(25),	      /* Student = null */
     `type` CHAR(20) NOT NULL, /*  F = Faculty; S = Student*/
     PRIMARY KEY (`sfsu_id`)
 );
